@@ -2,10 +2,11 @@ package racingcar.domain;
 
 public class Lap {
 
+    private static final int END_LAP = 0;
     private static final int MINIMUM_RANGE = 1;
     private static final int MAXIMUM_RANGE = 2147483646;
 
-    private final int lap;
+    private int lap;
 
     private Lap(int lap) {
         validateNumberRange(lap);
@@ -24,5 +25,13 @@ public class Lap {
 
     public int getLap() {
         return lap;
+    }
+
+    public boolean isEnd(){
+        if (lap == END_LAP){
+            return true;
+        }
+        lap--;
+        return false;
     }
 }

@@ -8,4 +8,16 @@ public class GameView {
         System.out.println(ERROR_PREFIX + message);
         System.out.println();
     }
+
+    public static void printRacing(String carName, String carPosition) {
+        System.out.println(carName + " : " + carPosition);
+    }
+
+    public static void printEnterLine() {
+        System.out.println();
+    }
+
+    public static void printRaceStart() {
+        System.out.println("실행 결과");
+    }
 }

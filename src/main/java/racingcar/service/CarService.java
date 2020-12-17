@@ -10,6 +10,16 @@ import racingcar.view.UserInput;
 public class CarService {
 
     private static final String COMMA = ",";
+    private static final String DASH = "-";
+
+    public static String getCarPosition(Car car){
+        StringBuilder stringBuilder = new StringBuilder();
+        int position = car.getPosition();
+        for (int i = 0; i < position; i++) {
+            stringBuilder.append(DASH);
+        }
+        return stringBuilder.toString();
+    }
 
     public static CarRepository getParticipationCars() {
         while (true) {

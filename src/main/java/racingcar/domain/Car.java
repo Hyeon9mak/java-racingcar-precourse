@@ -7,7 +7,7 @@ public class Car {
     private static final int MAXIMUM_NAME_LENGTH = 5;
 
     private final String name;
-    private final int position = 0;
+    private int position = 0;
 
     public Car(String name) {
         validateWhiteSpace(name);
@@ -21,6 +21,16 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void moveForward() {
+        if (GasTank.enoughGas()) {
+            position++;
+        }
     }
 
     private void validateLength(String name) {
