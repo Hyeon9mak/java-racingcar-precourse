@@ -1,5 +1,6 @@
 package racingcar;
 
+import java.util.List;
 import racingcar.domain.CarRepository;
 import racingcar.domain.Lap;
 import racingcar.service.CarService;
@@ -18,12 +19,18 @@ public class RacingCarGame {
     public void start() {
         CarRepository racer = CarService.getParticipationCars();
         Lap lap = LapService.getRacingLap();
-        GameView.printEnterLine();
-        GameView.printRaceStart();
         racing(racer, lap);
+        awardWinners(racer);
+    }
+
+    private void awardWinners(CarRepository racer) {
+        List<String> winnerNames = CarService.getWinnerNames(racer);
+        GameView.printWinners(winnerNames);
     }
 
     private void racing(CarRepository racer, Lap lap) {
+        GameView.printEnterLine();
+        GameView.printRaceStart();
         while (!lap.isEnd()) {
             oneLapRacing(racer);
             GameView.printEnterLine();

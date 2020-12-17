@@ -1,6 +1,7 @@
 package racingcar.service;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import racingcar.domain.Car;
 import racingcar.domain.CarRepository;
@@ -12,7 +13,7 @@ public class CarService {
     private static final String COMMA = ",";
     private static final String DASH = "-";
 
-    public static String getCarPosition(Car car){
+    public static String getCarPosition(Car car) {
         StringBuilder stringBuilder = new StringBuilder();
         int position = car.getPosition();
         for (int i = 0; i < position; i++) {
@@ -45,5 +46,19 @@ public class CarService {
         if (participationNames.endsWith(COMMA)) {
             throw new IllegalArgumentException("각 자동차 이름은 1~5자 사이여야 합니다.");
         }
+    }
+
+    public static List<String> getWinnerNames(CarRepository racer) {
+        int maxDistance = getMaxDistance(racer);
+        List<String> winnerNames = new ArrayList<>();
+        racer.getCars().stream().filter(car -> car.getPosition() == maxDistance)
+            .forEach(car -> winnerNames.add(car.getName()));
+        return winnerNames;
+    }
+
+    private static int getMaxDistance(CarRepository racer) {
+        return racer.getCars().stream()
+            .max(Comparator.comparingInt(Car::getPosition))
+            .get().getPosition();
     }
 }
