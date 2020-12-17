@@ -1,12 +1,36 @@
 package racingcar.domain;
 
 public class Car {
+
+    private static final String WHITE_SPACE = " ";
+    private static final int MAXIMUM_NAME_LENGTH = 5;
+
     private final String name;
-    private int position = 0;
+    private final int position = 0;
 
     public Car(String name) {
+        validateWhiteSpace(name);
+        validateLength(name);
         this.name = name;
     }
 
-    // 추가 기능 구현
+    public static Car participationCarWithName(String name) {
+        return new Car(name);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    private void validateLength(String name) {
+        if (name.length() > MAXIMUM_NAME_LENGTH) {
+            throw new IllegalArgumentException("각 자동차 이름은 5자 이하여야 합니다.");
+        }
+    }
+
+    private void validateWhiteSpace(String name) {
+        if (name.contains(WHITE_SPACE)) {
+            throw new IllegalArgumentException("이름에 공백이 포함될 수 없습니다.");
+        }
+    }
 }
