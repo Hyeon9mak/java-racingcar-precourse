@@ -6,7 +6,7 @@
 <br>
 
 ## 🎯 기능 구현 목록
-- RacingGame start
+- RacingCarGame start
 - Car 관련 모든 데이터 통제를 이루는 Service
 - UserInput 으로부터 이름 전달 받아서 Car 생성 후 CarRepository에 등록
 - 반복횟수(Lap) 입력 및 Lap 만큼 게임 반복
