@@ -1,7 +1,6 @@
 package racingcar.view;
 
 import java.util.List;
-import jdk.nashorn.internal.scripts.JO;
 
 public class GameView {
 

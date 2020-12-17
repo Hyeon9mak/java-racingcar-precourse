@@ -27,8 +27,8 @@ public class Lap {
         return lap;
     }
 
-    public boolean isEnd(){
-        if (lap == END_LAP){
+    public boolean isEnd() {
+        if (lap == END_LAP) {
             return true;
         }
         lap--;

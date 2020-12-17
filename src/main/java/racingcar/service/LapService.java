@@ -24,7 +24,7 @@ public class LapService {
     private static int validateInteger(String lap) {
         try {
             return Integer.parseInt(lap);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("시도 회수는 정수만 입력 가능합니다.");
         }
     }
