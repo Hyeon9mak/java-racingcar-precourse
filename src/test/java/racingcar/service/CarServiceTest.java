@@ -1,12 +1,14 @@
 package racingcar.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.Test;
 
 public class CarServiceTest {
 
     @Test
     public void testParticipationCar() {
-        CarService.participationCars();
+        assertThat(CarService.participationCars()).isNotNull();
     }
 
 }

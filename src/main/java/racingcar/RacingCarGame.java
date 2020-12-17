@@ -1,5 +1,7 @@
 package racingcar;
 
+import racingcar.service.CarService;
+
 public class RacingCarGame {
 
     private RacingCarGame(){
@@ -10,6 +12,6 @@ public class RacingCarGame {
     }
 
     public void start(){
-
+        System.out.println(CarService.participationCars().getCars().size());
     }
 }
