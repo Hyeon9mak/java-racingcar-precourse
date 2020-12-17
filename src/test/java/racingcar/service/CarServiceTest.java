@@ -8,7 +8,8 @@ public class CarServiceTest {
 
     @Test
     public void testParticipationCar() {
-        assertThat(CarService.participationCars()).isNotNull();
+        assertThat(CarService.getParticipationCars()).isNotNull();
+        assertThat(LapService.getRacingLap().getLap()).isPositive();
     }
 
 }

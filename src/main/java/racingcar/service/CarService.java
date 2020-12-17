@@ -11,20 +11,20 @@ public class CarService {
 
     private static final String COMMA = ",";
 
-    public static CarRepository participationCars() {
-        while(true){
-            try{
-                return participationCarsWithValidate();
-            } catch (IllegalArgumentException e){
+    public static CarRepository getParticipationCars() {
+        while (true) {
+            try {
+                return participationWithValidate();
+            } catch (IllegalArgumentException e) {
                 GameView.printError(e.getMessage());
             }
         }
     }
 
-    private static CarRepository participationCarsWithValidate() {
-        List<Car> participationCars = new ArrayList<>();
+    private static CarRepository participationWithValidate() {
         String participationNames = UserInput.getParticipationCars();
         validateComma(participationNames);
+        List<Car> participationCars = new ArrayList<>();
         for (String name : participationNames.split(",")) {
             participationCars.add(Car.participationCarWithName(name));
         }
@@ -32,7 +32,7 @@ public class CarService {
     }
 
     private static void validateComma(String participationNames) {
-        if (participationNames.endsWith(COMMA)){
+        if (participationNames.endsWith(COMMA)) {
             throw new IllegalArgumentException("각 자동차 이름은 1~5자 사이여야 합니다.");
         }
     }
